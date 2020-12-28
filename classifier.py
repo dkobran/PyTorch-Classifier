@@ -28,7 +28,7 @@ test_data = None          # optional
 # Set up hyperparameters.
 lr = 0.001
 batch_size = 128
-num_epochs = 3
+num_epochs = 2
 
 # Set up logging.
 experiment_id = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
@@ -48,7 +48,7 @@ def preprocess(data, name):
     images, labels = data
 
     # Rescale images to 0-255 and convert to uint8.
-    # Note: This is done for each dataset individually, which is usually ok if all 
+    # Note: This is done for each dataset individually, which is usually ok if all
     # datasets look similar. If not, scale all datasets based on min/ptp of train set.
     images = (images - np.min(images)) / np.ptp(images) * 255
     images = images.astype(np.uint8)
@@ -61,9 +61,9 @@ def preprocess(data, name):
     images = images.transpose((0, 2, 3, 1))  # channels-last, required for transforms.ToPILImage
     transform = transforms.Compose([
         transforms.ToPILImage(),
-        transforms.Resize(256), 
-        transforms.CenterCrop(224), 
-        transforms.ToTensor(), 
+        transforms.Resize(256),
+        transforms.CenterCrop(224),
+        transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
     images = torch.stack(list(map(transform, images)))
@@ -135,7 +135,7 @@ def log_epoch(trainer):
     # Train data.
     evaluator.run(train_loader)
     log_results("train", evaluator.state.metrics, trainer.state.epoch)
-    
+
     # Val data.
     if val_loader:
         evaluator.run(val_loader)
