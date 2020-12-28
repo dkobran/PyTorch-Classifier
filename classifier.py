@@ -17,18 +17,16 @@ def fake_data():
 
 
 # ----------------------------------- Setup -----------------------------------
-# INSERT YOUR DATA HERE
-# Expected format: [images, labels]
-# - images has array shape (num samples, color channels, height, width)
+# - images has array shape (num samples, channels, )
 # - labels has array shape (num samples, )
 train_data = fake_data()  # required
 val_data = fake_data()    # optional
 test_data = None          # optional
 
 # Set up hyperparameters.
-lr = 0.001
-batch_size = 128
-num_epochs = 3
+lr = 0.005
+batch_size = 256
+num_epochs = 2
 
 # Set up logging.
 experiment_id = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
