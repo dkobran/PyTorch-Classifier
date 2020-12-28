@@ -26,7 +26,7 @@ test_data = None          # optional
 # Set up hyperparameters.
 lr = 0.005
 batch_size = 256
-num_epochs = 4
+num_epochs = 5
 
 # Set up logging.
 experiment_id = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
