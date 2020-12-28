@@ -24,9 +24,9 @@ val_data = fake_data()    # optional
 test_data = None          # optional
 
 # Set up hyperparameters.
-lr = 0.005
-batch_size = 256
-num_epochs = 5
+lr = 0.001
+batch_size = 128
+num_epochs = 3
 
 # Set up logging.
 experiment_id = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
