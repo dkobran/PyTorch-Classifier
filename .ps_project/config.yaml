@@ -1,0 +1,13 @@
+version: 2
+
+workflows:
+  single-node:
+    steps:
+      -
+        name: "train single-node"
+        command: experiment.run_single_node
+        params:
+          command: pip install numpy torch torchvision pytorch-ignite tensorboardX tensorboard && python3 main.py
+          container: paperspace/fastai:2.0-CUDA9.2-fastbook-v0.0.11
+          machineType: "P4000"
+          clusterId: clq6q1qt0
